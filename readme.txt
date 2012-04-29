@@ -13,11 +13,10 @@ Advanced Custom Fields is the perfect solution for any wordpress website which n
 
 * Visually create your Fields
 * Select from multiple input types (text, textarea, wysiwyg, image, file, page link, post object, relationship, select, checkbox, radio buttons, repeater, more to come)
-* Assign your fields to multiple edit pages (specific ID's, post types, post slugs, parent ID's, template names)
-* Add, Edit and reorder infinite rows to your fields
+* Assign your fields to multiple edit pages (via custom location rules)
 * Easily load data through a simple and friendly API
 * Uses the native WordPress custom post type for ease of use and fast processing
-* Now uses custom Database tables to improve speed, reliability and future development
+* Uses the native WordPress metadata for ease of use and fast processing
 
 = Field Types =
 * Text (type text, api returns text)
@@ -86,22 +85,16 @@ http://www.advancedcustomfields.com/support/
 
 == Changelog ==
 
-= 3.1.8 beta 2 =
-* Added field support for user-edit.php
-* Added support for Everything Fields + specific taxonomies / user types
-* CSS tweaks: new style for selects with optgroups
-* New location select dropdown
-* Simplified get_value to return default value if value == ""
-* API now allows for "option" and "options" for the $post_id value in API functions
-
-= 3.1.8 beta 1 =
+= 3.1.8 =
 * Options page fields now save their data in the wp_options table. This will require a "Database Upgrade" when you update ACF. This upgrade will move your Options page data from the postmeta table to the options table.
 * Added _e() and __() functions to more text throughout plugin
 * Added new French translation. Thanks to Martin Vauchel @littlbr http://littleboyrunning.com
 * Fixed duplicate WYSIWYG in chrome bug
-* New Add-on: Everything fields (fields for user / taxonomy / attachment)
+* New Location rules: add fields to a user / taxonomy / attachment
 * Bug Fix: Color picker now shows color on page load. Thanks to Kev http://www.popcreative.co.uk
-* CSS tweaks (File clearfix)
+* CSS tweaks File clearfix, new style for selects with optgroups
+* Simplified get_value to return default value if value == ""
+* API now allows for "option" and "options" for the $post_id value in API functions
 
 = 3.1.7 =
 * Bug fix: Image field returns correct url after selecting one or more images

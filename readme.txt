@@ -86,6 +86,23 @@ http://www.advancedcustomfields.com/support/
 
 == Changelog ==
 
+= 3.1.8 beta 2 =
+* Added field support for user-edit.php
+* Added support for Everything Fields + specific taxonomies / user types
+* CSS tweaks: new style for selects with optgroups
+* New location select dropdown
+* Simplified get_value to return default value if value == ""
+* API now allows for "option" and "options" for the $post_id value in API functions
+
+= 3.1.8 beta 1 =
+* Options page fields now save their data in the wp_options table. This will require a "Database Upgrade" when you update ACF. This upgrade will move your Options page data from the postmeta table to the options table.
+* Added _e() and __() functions to more text throughout plugin
+* Added new French translation. Thanks to Martin Vauchel @littlbr http://littleboyrunning.com
+* Fixed duplicate WYSIWYG in chrome bug
+* New Add-on: Everything fields (fields for user / taxonomy / attachment)
+* Bug Fix: Color picker now shows color on page load. Thanks to Kev http://www.popcreative.co.uk
+* CSS tweaks (File clearfix)
+
 = 3.1.7 =
 * Bug fix: Image field returns correct url after selecting one or more images
 * Translation: Added Polish translation. Thank you Bartosz Arendt - Digital Factory - www.digitalfactory.pl
@@ -103,6 +120,7 @@ http://www.advancedcustomfields.com/support/
 * Bug Fix: Fixed multi upload / select image in repeater. 
 * Performance: Added caching to the get_field function. Templates will now render quicker.
 * Bug Fix: Fixed Post formats location rule - it now works.
+* Nested repeaters are now possible!
 
 = 3.1.5 =
 * Improvement: Redesigned the experience for uploading and selecting images / files in fields and sub fields. Image / File fields within a repeater can now add multiple images / files

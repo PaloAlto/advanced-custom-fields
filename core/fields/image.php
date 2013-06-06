@@ -345,12 +345,12 @@ class acf_field_image extends acf_field
 		{
 			foreach( $options['images'] as $id )
 			{
-				$src = wp_get_attachment_image_src( $id, $options['preview_size'] );
+				$url = wp_get_attachment_image_src( $id, $options['preview_size'] );
 				
 				
 				$return[] = array(
 					'id' => $id,
-					'src' => $src[0],
+					'url' => $url[0],
 				);
 			}
 		}

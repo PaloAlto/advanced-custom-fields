@@ -66,7 +66,7 @@
 			}
 					
 		},
-		update : function( image ){
+		add : function( image ){
 			
 			// this function must reference a global div variable due to the pre WP 3.5 uploader
 			// vars
@@ -108,7 +108,7 @@
 			this.$el.removeClass('active');
 			
 		},
-		add : function()
+		popup : function()
 		{
 			// reference
 			var t = this;
@@ -133,17 +133,32 @@
 							multiple	:	t.o.multiple,
 							title		:	acf.l10n.image.select,
 							priority	:	20,
-							filterable	:	'all',
+							filterable	:	'all'
 						})
 					]
 				});
 				
+				/*
+				acf.media.frame.on('all', function(e){
+					
+					console.log( e );
+					
+				});
+				*/
 				
 				// customize model / view
-				acf.media.frame.on('content:activate', function(){
+				acf.media.frame.on('open', function(){
 					
 					var content = acf.media.frame.content.get(),
 						filters = content.toolbar._views.filters;
+					
+					
+					// filter only images
+					$.each( filters.filters, function( k, v ){
+					
+						v.props.type = 'image';
+						
+					});
 					
 					
 					// no need for 'uploaded' filter
@@ -182,7 +197,7 @@
 					
 					
 					// set default filter
-					//filters.$el.val('image').trigger('change');
+					filters.$el.val('image').trigger('change');
 					
 				});
 				
@@ -238,7 +253,7 @@
 					    	}
 					    	
 					    	// add image to field
-					        acf.fields.image.update( image );
+					        acf.fields.image.add( image );
 					        
 							
 					    });
@@ -256,7 +271,7 @@
 			}
 			else
 			{	
-				tb_show( acf.l10n.image.select , acf.admin_url + 'media-upload.php?post_id=' + acf.o.post_id + '&post_ID=' + acf.post_id + '&type=image&acf_type=image&acf_preview_size=' + t.o.preview_size + '&TB_iframe=1');
+				tb_show( acf.l10n.image.select , acf.admin_url + 'media-upload.php?post_id=' + acf.o.post_id + '&post_ID=' + acf.o.post_id + '&type=image&acf_type=image&acf_preview_size=' + t.o.preview_size + '&TB_iframe=1');
 			}
 			
 			return false;
@@ -318,7 +333,7 @@
 	
 	$('.acf-image-uploader .add-image').live('click', function(){
 				
-		acf.fields.image.set({ $el : $(this).closest('.acf-image-uploader') }).add();
+		acf.fields.image.set({ $el : $(this).closest('.acf-image-uploader') }).popup();
 		
 		return false;
 		

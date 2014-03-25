@@ -41,7 +41,8 @@ class acf
 		// vars
 		$this->settings = array(
 			'path'				=> apply_filters('acf/helpers/get_path', __FILE__),
-			'dir'				=> apply_filters('acf/helpers/get_dir', __FILE__),
+			//'dir'				=> apply_filters('acf/helpers/get_dir', __FILE__),
+			'dir'				=> plugins_url() . '/advanced-custom-fields/',
 			'hook'				=> basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ),
 			'version'			=> '4.3.5',
 			'upgrade_version'	=> '3.4.1',
@@ -141,8 +142,6 @@ class acf
 	        $wp_dir = str_replace('\\' ,'/', ABSPATH); 
 	        $dir = str_replace($wp_dir, site_url('/'), $dir);
         }
-        
-
         return $dir;
     }
 	
